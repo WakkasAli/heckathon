@@ -1,5 +1,5 @@
 import React from 'react'
-import { client } from "../../../sanity/lib/client"
+import { client } from "../../../../sanity/lib/client"
 import { drizzle } from 'drizzle-orm/vercel-postgres'
 import { InferModel, eq, sql } from 'drizzle-orm'
 import { integer, pgTable, serial, text, timestamp,varchar } from 'drizzle-orm/pg-core'
@@ -9,8 +9,6 @@ import { cartTable } from '@/lib/drizzle'
 import { cookies } from 'next/headers'
 import CartItems from '@/components/CartItems'
 import OrderSummary from '@/components/OrderSummary'
-import Link from 'next/link'
-
 
 const pool = new Pool({
   connectionString: 'postgres://default:gvQ6ZW7aBenV@ep-orange-art-033162.us-east-1.postgres.vercel-storage.com:5432/verceldb',
@@ -29,6 +27,19 @@ export const getProducts = async ()=> {
   return res
 } 
 
+async function oncheckout() {
+  console.log("checkout")
+  const response = await fetch('/api/checkout',{
+    method:"POST",
+    body: null
+  })
+  const data = await response.json()
+  // const result = await redirectToCheckout(data.id)
+  // if(result?.error){
+  //   console.error(result)
+  // }
+}
+
 interface ICart{
   id:number,
   user_id:string,
@@ -37,9 +48,10 @@ interface ICart{
 }
 
 
-const getallCart = async () => {
+const checkout = async ({params}:any) => {
+
   const data:ICart[] = await getProducts()
-  
+  oncheckout()
 console.log(data.length)
 
   return(
@@ -56,27 +68,12 @@ console.log(data.length)
             
             <div className="px-4 sm:w-1/2 md:w-1/2 xl:w-1/2">
             <div className='h1 text-1lg font-bold'>
-            Shopping Cart
+            Pay with card
             </div>
             {/* <div className="text-lg"> Price: ${item.product_id}</div> */}
-            <CartItems item={item.product_id} />
+            {/* <CartItems item={item.product_id} /> */}
             </div>
 
-            <div className="px-4 sm:w-1/4 md:w-1/4 xl:w-1/4  bg-gray-50">
-              <div className="text-lg mt-4"><b>Order Summary</b></div>
-              <div className='flex justify-between mt-4'>
-                <p>Quantity</p>
-                <p>{data.length} Products</p>
-              </div>
-              <div className='mt-4'>
-                <OrderSummary item={item.product_id} />
-              </div>
-              <div className='py-4 text-xl bg-black text-white justify-center mt-8'>
-              <Link href={`CheckOut/${item.user_id}`}>
-                <span className='px-3 mr-2 h-4 w-4 justify-center'>Process to Checkout </span>
-              </Link>
-            </div>
-            </div>
           </div>
         </div>
         )
@@ -86,4 +83,4 @@ console.log(data.length)
   )
 }
 
-export default getallCart
+export default checkout

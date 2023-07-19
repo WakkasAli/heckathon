@@ -43,24 +43,24 @@ const getproductdetail = async(params:any) => {
                 <img src={item.image[0]} width={180} height={100} alt='' />
             </div>
 
-            <div className="px-4 sm:w-1/2 md:w-1/2 xl:w-1/2 ">
+          <div className="px-4 sm:w-full md:w-full xl:w-full ">
             
-          <div className="text-lg"><b>{item.pname}</b></div>
-          <div className="text-gray-500"><b>{item.category}</b></div>
+            <div className="text-lg"><b>{item.pname}</b></div>
+            <div className="text-gray-500"><b>{item.category}</b></div>
 
-            <div className='py-4'>
-                <b>Delevery Estimation</b>
-            </div>
-            <div className='text-yellow-500'>
-                <b>5 Working Days</b>
-            </div>
+              <div className='py-4'>
+                  <b>Delevery Estimation</b>
+              </div>
+              <div className='text-yellow-500'>
+                  <b>5 Working Days</b>
+              </div>
 
-            <div className='flex py-4 text-xl'>
-                <span className='px-3 item-start'> <b>${item.price}.00</b></span>
-                <span className='item-end'>
-                <ProductQuantity item={item} />
-                </span>
-            </div>
+              <div className='flex justify-between py-4 text-xl'>
+                  <span className='px-3'> <b>${item.price}.00</b></span>
+                  <span className=''>
+                  <ProductQuantity item={item} />
+                  </span>
+              </div>
           </div>
         </div>
         )
