@@ -29,7 +29,7 @@ interface IProduct{
 }
 
 const getproductdetail = async(params:any) => {
-  
+  console.log("Params")
   const data:IProduct[] = await getProductsbyId(params.item)
 
 

@@ -25,7 +25,7 @@ export const getProducts = async ()=> {
   const uid = cookies().get("user_id")?.value;
   
   const res = await db.select().from(cartTable).where(eq(cartTable.user_id, uid as string));
-  
+  console.log(res)
   return res
 } 
 

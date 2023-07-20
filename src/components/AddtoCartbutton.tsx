@@ -12,6 +12,7 @@ const AddtoCartbutton:FC<{item: any}>=({item})=>{
                 
         const res = fetch("/api/cart", {
             method:"POST",
+            cache: 'no-store',
             body:JSON.stringify({
                 product_id:item._id,
                 quantity:item.quantity

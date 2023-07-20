@@ -6,13 +6,13 @@ import { eq } from "drizzle-orm"
 
 
 export const GET = async(request: Request) =>{
-    alert("id")
+    
     const req = request.url
-    const uid = 1 //req.searchParams.get("user_id") as string
-
+    const uid = cookies().get("user_id")?.value
+    console.log(uid)
     try{
         if(!uid){
-        const res= await db.select().from(cartTable).where(eq(cartTable.user_id,uid));
+        const res= await db.select().from(cartTable).where(eq(cartTable.user_id,uid as string));
         return NextResponse.json({res})
         }
     }
@@ -24,7 +24,7 @@ export const GET = async(request: Request) =>{
 
 export const POST = async(request: Request)=>{
 
-    
+    console.log("Cart POST Hit")
     const req= await request.json();
 
     const uid =v4();
