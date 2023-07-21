@@ -18,12 +18,17 @@ const checkout = async ({params}:any) =>{
       "product_id": "9bd30f90-594a-44cb-87db-ea56125b42ac",
       "price": 175
     })
+  }).then(async function(result){
+    
+   //const data = await response.json()
+    
+
   })
 
-  if(response.status ===500) return;
+  // if(response.status ===500) return;
 
-  const data = await response.json()
-  stripe.redirectToCheckout({sessionId: data.id})
+  // const data = await response.json()
+  // stripe.redirectToCheckout({sessionId: data.id})
 
     }
 
@@ -35,3 +40,7 @@ const checkout = async ({params}:any) =>{
 }
 
 export default checkout
+
+function userRouter() {
+  throw new Error('Function not implemented.');
+}
