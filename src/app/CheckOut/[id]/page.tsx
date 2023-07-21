@@ -3,8 +3,10 @@ import React from 'react'
 import { useShoppingCart } from 'use-shopping-cart'
 import { Stripe, loadStripe } from '@stripe/stripe-js';
 import getStripe from '@/lib/publicStripe';
+import {usePathname} from "next/navigation"
+import publicStripe from "@/lib/publicStripe"
 
-
+const stripe = publicStripe;
 
 async function oncheckout(apiId:any) {
   console.log("checkout Method with apiId:  ", apiId)
@@ -16,15 +18,23 @@ async function oncheckout(apiId:any) {
       "product_id": "9bd30f90-594a-44cb-87db-ea56125b42ac",
       "price": 175
     })
+  }).then(async function(result){
+    
+   const data = await (response).json()
+    
+
   })
   
+  const router = usePathname()
    const data = await (response).json()
+    const url = data.url
+    
+   console.log("Response Data:  ",router)
 
-   console.log("Response Data:  ",data)
-  const stripe = await getStripe();
-  const {error} = await stripe!.redirectToCheckout({
-    sessionId:data.id,
-  });
+  // const stripe = await getStripe();
+  // const {error} = await stripe!.redirectToCheckout({
+  //   sessionId:data.id,
+  // });
   
 // const {redirectToCheckout} = useShoppingCart();
   
@@ -77,3 +87,7 @@ const checkout = async ({params}:any) => {
 }
 
 export default checkout
+
+function userRouter() {
+  throw new Error('Function not implemented.');
+}
