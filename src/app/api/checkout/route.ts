@@ -13,20 +13,22 @@ export const POST = async (request:Request) => {
         mode:"payment",
         payment_method_types:['card'],
         line_items:[{
-            price:"price_1NVpLaKh09EZksuZJ0YuE7SP",
+            price:"price_1NW2CAL0iWxuD9W8PXaMzF9r",
             quantity:1
         }],
         shipping_address_collection:{
             allowed_countries:['US']
         },
         shipping_options:[{
-            shipping_rate:"shr_1NVXcVKh09EZksuZWJgxFLbt"
+            shipping_rate:"shr_1NW2J3L0iWxuD9W8Vhua2D4h"
         }],
         billing_address_collection:"auto",
-        success_url:`https://www.google.com`,
-        cancel_url:`https://www.facebook.com/`
+        success_url:`http://localhost:3000/success?session_id={CHECKOUT_SESSION_ID}`,
+        cancel_url:`http://localhost:3000/cart`
     })
     
-    console.log("Session: ", session)
+    //console.log("Session: ", session)
+
+    
     return NextResponse.json(session)
 }
