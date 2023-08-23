@@ -72,7 +72,7 @@ console.log(data.length)
                 <OrderSummary item={item.product_id} />
               </div>
               <div className='py-4 text-xl bg-black text-white justify-center mt-8'>
-              <Link href={`CheckOut/${item.user_id}`}>
+              <Link href={`/Checkout`}>
                 <span className='px-3 mr-2 h-4 w-4 justify-center'>Process to Checkout </span>
               </Link>
             </div>

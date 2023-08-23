@@ -9,8 +9,7 @@ import { useDispatch } from 'react-redux';
 
 const stripe = publicStripe;
 
-async function oncheckout(apiId:any) {
-  console.log("checkout Method with apiId:  ", apiId)
+async function oncheckout() {
 
   const {formattedTotalPrice ="220", totalPrice = "100", cartDetails,cartCount, redirectToCheckout} =  useShoppingCart()
   
@@ -30,27 +29,8 @@ async function oncheckout(apiId:any) {
     }
    },[redirectToCheckout])
 
-    //await redirectToCheckout(data)
-
   })
-  
-  //  const data = await (response).json()
-  //   const url = data.url
-    
-
-  // const stripe = await getStripe();
-  // const {error} = await stripe!.redirectToCheckout({
-  //   sessionId:data.id,
-  // });
-  
-// const {redirectToCheckout} = useShoppingCart();
-  
-//   console.log("Api Response:  ",response.url)
-
-//   let {data} = await (await response).json()
-//   console.log("SessionId: ",data)
-//   const result = await redirectToCheckout(data.id)
-  
+ 
 }
 
 interface ICart{
@@ -61,9 +41,9 @@ interface ICart{
 }
 
 
-const checkout = async ({params}:any) => {
+const Checkout = async () => {
 
-  oncheckout(params)
+  oncheckout()
 
   return(
     <div className="mt-8">
@@ -93,8 +73,5 @@ const checkout = async ({params}:any) => {
   )
 }
 
-export default checkout
+export default Checkout
 
-function userRouter() {
-  throw new Error('Function not implemented.');
-}
