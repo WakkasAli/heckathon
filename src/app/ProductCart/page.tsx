@@ -1,3 +1,4 @@
+
 import React from 'react'
 import { client } from "../../../sanity/lib/client"
 import { drizzle } from 'drizzle-orm/vercel-postgres'
@@ -6,10 +7,13 @@ import { integer, pgTable, serial, text, timestamp,varchar } from 'drizzle-orm/p
 import { Pool } from 'pg'
 import { VercelPool, VercelPostgresClientConfig } from '@vercel/postgres'
 import { cartTable } from '@/lib/drizzle'
-import { cookies } from 'next/headers'
 import CartItems from '@/components/CartItems'
 import OrderSummary from '@/components/OrderSummary'
 import Link from 'next/link'
+import { getStripe } from '@/lib/strip'
+import { Button } from '@/components/ui/button'
+import { cookies } from 'next/headers'
+import CartSummary from '@/components/CartSummary'
 
 
 const pool = new Pool({
@@ -35,6 +39,27 @@ interface ICart{
   product_id:string,
   quantity:number
 }
+
+// const handleCheckout = async () =>{
+//   console.log("Cart Summary Page: ");
+//   const stripe = await getStripe();
+
+//   const response = await  fetch(`http://localhost:3000/api/checkout`,{
+//   method:"POST",
+//   headers: { "Content-Type": "application/json" },
+//   body: JSON.stringify({
+//     "product_id": "9bd30f90-594a-44cb-87db-ea56125b42ac",
+//     "price": 175
+//   })
+// })
+
+// if(response.status ===500) return;
+
+// const data = await response.json()
+// stripe.redirectToCheckout({sessionId: data.id})
+
+  
+// }
 
 
 const getallCart = async () => {
@@ -74,7 +99,7 @@ console.log(data.length)
               <div className='py-4 text-xl bg-black text-white justify-center mt-8'>
               <Link href={`/Checkout`}>
                 <span className='px-3 mr-2 h-4 w-4 justify-center'>Process to Checkout </span>
-              </Link>
+              </Link> 
             </div>
             </div>
           </div>

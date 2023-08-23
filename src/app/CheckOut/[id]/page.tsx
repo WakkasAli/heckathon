@@ -7,7 +7,7 @@ import {usePathname} from "next/navigation"
 import publicStripe from "@/lib/publicStripe"
 import { useDispatch } from 'react-redux';
 
-const stripe = publicStripe;
+    oncheckout();
 
 async function oncheckout(apiId:any) {
   console.log("checkout Method with apiId:  ", apiId)
@@ -65,32 +65,11 @@ const checkout = async ({params}:any) => {
 
   oncheckout(params)
 
-  return(
-    <div className="mt-8">
-      {
-        
-        <div>
-          
-        
-          <div className="flex md:py-4">
-            <div className="px-4 sm:w-1/5 md:w-1/5 xl:w-1/5">
-            </div>
-            
-            <div className="px-4 sm:w-1/2 md:w-1/2 xl:w-1/2">
-            <div className='h1 text-1lg font-bold'>
-            Pay with card
-            </div>
-            {/* <div className="text-lg"> Price: ${item.product_id}</div> */}
-            {/* <CartItems item={item.product_id} /> */}
-            </div>
-
-          </div>
+    return(
+        <div className="cart-wrapper" >
+            <h2>Shopping Cart</h2>
         </div>
-        
-        
-      }
-    </div>
-  )
+    )
 }
 
 export default checkout
