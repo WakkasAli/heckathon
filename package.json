@@ -23,7 +23,6 @@
     "class-variance-authority": "^0.6.1",
     "clsx": "^1.2.1",
     "drizzle-orm": "^0.27.2",
-    "eslint-utils": "^3.0.0",
     "lucide-react": "^0.258.0",
     "next": "^13.4.11-canary.2",
     "next-headers": "^0.0.5",
