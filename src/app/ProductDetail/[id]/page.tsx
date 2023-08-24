@@ -10,7 +10,7 @@ import ProductQuantity from '@/components/ProductQuantity'
 import AddtoCartbutton from '@/components/AddtoCartbutton'
 
 
-export const getProductsbyId = async (productId:any)=> {
+const getProductsbyId = async (productId:any)=> {
     
   const res = await client.fetch('*[_type=="product" &&  _id == $productId]{_id,price,pname,pdetail,pcare,category,"image":image[].asset->url}',{productId:productId})
   return res;
