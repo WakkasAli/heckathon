@@ -1,6 +1,5 @@
 
 import Link from "next/link"
-import logo from "/public/Logo.webp"
 import Image from "next/image"
 import React from "react"
 
@@ -11,7 +10,7 @@ const footer = ()=>{
                 <div className="max-w-7xl mx-auto">
                     <div className="sm:flex sm:flex-wrap sm:-mx4 md:py-4">
                         <div className="px-4 sm:w-1/2 md:w-1/3 xl:w-1/3 ">
-                            <Image src={logo} width={180} height={30} alt='logo' />
+                            {/* <Image src={logo} width={180} height={30} alt='logo' /> */}
                             <p className="py-5">Small, artisan label that offers a thoughtfully curated collection of high quality everyday essentials made.</p>
                             <div className='icon-container'>
                                 {/* <div><GrTwitter size={20} /></div>
