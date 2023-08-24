@@ -5,7 +5,7 @@ import { CheckCheck, XCircle } from "lucide-react"
 import Stripe from "stripe"
 interface Props {}
 
-export function CheckoutSession() {
+ function CheckoutSession() {
   if (false) {
     return (
       <>

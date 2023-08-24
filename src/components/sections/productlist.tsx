@@ -9,7 +9,7 @@ import Product from "../../../sanity/Product"
 import Link from "next/link"
 
 
-export const getProducts = async ()=> {
+const getProducts = async ()=> {
   const res = await client.fetch('*[_type=="product"]{_id,price,pname,category,"image":image[].asset->url}')
   return res;
 } 
