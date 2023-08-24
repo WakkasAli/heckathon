@@ -34,3 +34,5 @@ interface Props {}
     </>
   )
 }
+
+export default CheckoutSession
