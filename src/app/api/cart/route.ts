@@ -26,14 +26,15 @@ export const POST = async(request: Request)=>{
 
     console.log("Cart POST Hit")
     const req= await request.json();
-
+    console.log("json",req)
     const uid =v4();
     const setCookies = cookies();
 
     const user_id=cookies().get("user_id")?.value;
-
+    console.log(uid)
     if(!user_id){
-        setCookies.set("user_id", uid);
+        const result = setCookies.set("user_id;l", uid);
+        console.log("Setted",result)
     }
 
     try{
@@ -42,9 +43,11 @@ export const POST = async(request: Request)=>{
             quantity:req.quantity,
             user_id: cookies().get("user_id")?.value as string
         }).returning();
+
+        console.log(res);
         return NextResponse.json({res})
     }
     catch(error){
-
+        console.log("error: ",error)
     }
 }

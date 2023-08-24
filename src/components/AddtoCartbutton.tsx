@@ -10,9 +10,9 @@ const AddtoCartbutton:FC<{item: any}>=({item})=>{
 
     const handleAddToCart= async ()=> {
                 
-        const res = fetch("/api/cart", {
+        const res = fetch(`http://localhost:3000/api/cart`, {
             method:"POST",
-            cache: 'no-store',
+            headers: { "Content-Type": "application/json" },
             body:JSON.stringify({
                 product_id:item._id,
                 quantity:item.quantity

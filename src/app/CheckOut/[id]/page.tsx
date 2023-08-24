@@ -7,7 +7,6 @@ import {usePathname} from "next/navigation"
 import publicStripe from "@/lib/publicStripe"
 import { useDispatch } from 'react-redux';
 
-    oncheckout();
 
 async function oncheckout(apiId:any) {
   console.log("checkout Method with apiId:  ", apiId)

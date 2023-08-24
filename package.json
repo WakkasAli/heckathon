@@ -18,7 +18,7 @@
     "@types/node": "20.3.3",
     "@types/react": "18.2.14",
     "@types/react-dom": "18.2.6",
-    "@vercel/postgres": "^0.4.0",
+    "@vercel/postgres": "^0.4.1",
     "autoprefixer": "10.4.14",
     "class-variance-authority": "^0.6.1",
     "clsx": "^1.2.1",
@@ -26,6 +26,7 @@
     "eslint-utils": "^3.0.0",
     "lucide-react": "^0.258.0",
     "next": "^13.4.11-canary.2",
+    "next-headers": "^0.0.5",
     "next-sanity": "^5.1.0",
     "next-themes": "^0.2.1",
     "npm-force-resolutions": "^0.0.10",
@@ -47,14 +48,8 @@
     "@types/pg": "^8.10.2",
     "@typescript-eslint/eslint-plugin": "^5.61.0",
     "@typescript-eslint/parser": "^5.61.0",
-    "drizzle-kit": "^0.19.8",
-    "eslint": "^8.45.0",
-    "eslint-config-airbnb": "^18.2.1",
-    "eslint-config-next": "^12.0.4",
-    "eslint-plugin-import": "^2.25.3",
-    "eslint-plugin-jsx-a11y": "^6.5.1",
-    "eslint-plugin-react": "^7.25.3",
-    "eslint-plugin-react-hooks": "^4.3.0"
+    "drizzle-kit": "^0.19.8"
+    
   },
   "description": "",
   "main": ".eslintrc.js",

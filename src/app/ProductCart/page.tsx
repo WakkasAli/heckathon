@@ -10,7 +10,6 @@ import { cartTable } from '@/lib/drizzle'
 import CartItems from '@/components/CartItems'
 import OrderSummary from '@/components/OrderSummary'
 import Link from 'next/link'
-import { getStripe } from '@/lib/strip'
 import { Button } from '@/components/ui/button'
 import { cookies } from 'next/headers'
 import CartSummary from '@/components/CartSummary'
@@ -97,9 +96,10 @@ console.log(data.length)
                 <OrderSummary item={item.product_id} />
               </div>
               <div className='py-4 text-xl bg-black text-white justify-center mt-8'>
-              <Link href={`/Checkout`}>
+              <CartSummary item={item} />
+              {/* <Link href={`/api/checkout`}>
                 <span className='px-3 mr-2 h-4 w-4 justify-center'>Process to Checkout </span>
-              </Link> 
+              </Link>  */}
             </div>
             </div>
           </div>
